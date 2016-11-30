@@ -5,7 +5,22 @@
     <link rel="stylesheet" href="public/bootstrap.min.css"/>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app" style="display: none"></div>
     <script type="text/javascript" src="public/bundle.js"></script>
+
+    <script language="javascript">
+    window.tdiff = [];
+    fred = function(a,b){return a-b;};
+
+    window.onload = function(e){
+        console.log("window.onload", e, Date.now() ,window.tdiff,
+        (window.tdiff[1] = Date.now()) && window.tdiff.reduce(fred) );
+    }
+
+    document.addEventListener("DOMContentLoaded", function(e) {
+       console.log("DOMContentLoaded", e, Date.now() ,window.tdiff,
+        (window.tdiff[0] = Date.now()) && window.tdiff.reduce(fred) );
+    });
+    </script>
   </body>
 </html>

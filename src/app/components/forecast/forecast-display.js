@@ -7,7 +7,7 @@ const ForecastDisplay = ({forecast}) => (
     <ul>
     {
       forecast.list
-        ? forecast.list.map(item => <ForecastDisplayItem item={item} />)
+        ? forecast.list.map((item, i) => <ForecastDisplayItem item={item} key={i} />)
         : null
     }
     </ul>
